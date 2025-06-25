@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<section class="py-5 bg-dark text-white text-center mb-5">
+  <div class="container py-5">
+    <h1 class="display-4 fw-bold" style="color: #F3B794;">About Us</h1>
+    <p class="lead mt-3">Discover the vision, passion, and story behind our creative journey.</p>
+  </div>
+</section>
+
+{% include 'portfolio/about_component.html' %}
+
+{% include 'portfolio/skills_component.html' %}
+
+{% endblock %}

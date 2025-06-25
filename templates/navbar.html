@@ -1,0 +1,32 @@
+{% load static %}
+
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'portfolio:home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{% static 'images/logo1.svg' %}">
+        <h1 class="sitename">HOLLIXPLICITS</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'portfolio:home' %}" class="active">Home</a></li>
+          <li><a href="{% url 'portfolio:about' %}">About</a></li>
+          <li><a href="{% url 'portfolio:gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'portfolio:services' %}">Services</a></li>
+          <li><a href="{% url 'portfolio:contact' %}">Contact</a></li>
+          <li><a href="{% url 'dashboard:dashboard' %}">Dashboard</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/MessachHolli"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/messach.holli" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/holli_xplicit_shots/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/holli-explicit-shots" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>

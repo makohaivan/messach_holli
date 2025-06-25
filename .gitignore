@@ -1,0 +1,36 @@
+# Python
+*.pyc
+*__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+db.sqlite3
+media/
+
+# Database
+*.sqlite3
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+*.env
+.env/
+
+# Static files at development
+staticfiles/
+!/static/      # Keep your source static files (the ones you edit)
+

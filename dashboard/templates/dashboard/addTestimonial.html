@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .btn-custom {
+        background-color: #FF520C;
+        color: white;
+    }
+
+    .btn-custom:hover {
+        background-color: #e04a0a; 
+    }
+</style>
+
+<div class="container d-flex justify-content-center mt-5">
+    <form action="" method="post" class="w-100" style="max-width: 600px;" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="mb-4 text-center">Add New Testimonial</h2>
+
+        {% for field in form %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger small">{{ field.errors|striptags }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-custom px-4">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

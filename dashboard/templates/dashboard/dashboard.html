@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="d-flex">
+
+  <!-- Sidebar -->
+  <div class="sidebar d-flex flex-column p-3 text-white">
+    <h4 class="text-white text-center">Dashboard</h4>
+    <hr class="bg-secondary">
+    <a href="{% url 'portfolio:gallery' %}">Gallery</a>
+    <a href="{% url 'portfolio:contact' %}">Testimonials</a>
+    <a href="{% url 'portfolio:services' %}">FAQs</a>
+    <a href="{% url 'portfolio:services' %}">Services</a>
+    <a href="{% url 'dashboard:logout' %}">Logout</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-grow-1 p-4">
+
+    <!-- Mobile toggle -->
+    <div class="mb-4 d-md-none">
+      <span class="toggle-sidebar">&#9776; Menu</span>
+    </div>
+
+    <!-- Page Heading -->
+    <h2 class="mb-4">Admin Dashboard</h2>
+
+    <div class="row g-4">
+
+      <!-- Gallery Card -->
+      <div class="col-md-6 col-xl-3">
+        <div class="card dashboard-card p-3">
+          <h5 class="card-title">Gallery</h5>
+          <p class="card-text">Total Photos: <strong>{{ total_photos }}</strong></p>
+          <a href="{% url 'dashboard:photo' %}" class="btn btn-sm btn-primary">Add New Photo</a>
+        </div>
+      </div>
+
+      <!-- Testimonials Card -->
+      <div class="col-md-6 col-xl-3">
+        <div class="card dashboard-card p-3">
+          <h5 class="card-title">Testimonials</h5>
+          <p class="card-text">Total Testimonials: <strong>{{ total_testimonials }}</strong></p>
+          <a href="{% url 'dashboard:addTestimonial' %}" class="btn btn-sm btn-primary">Add Testimonial</a>
+        </div>
+      </div>
+
+      <!-- FAQs Card -->
+      <div class="col-md-6 col-xl-3">
+        <div class="card dashboard-card p-3">
+          <h5 class="card-title">FAQs</h5>
+          <p class="card-text">Total FAQs: <strong>{{ total_faqs }}</strong></p>
+          <a href="{% url 'dashboard:addFaq' %}" class="btn btn-sm btn-primary">Add FAQ</a>
+        </div>
+    </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS (optional for sidebar toggle) -->
+<script>
+  document.querySelector('.toggle-sidebar')?.addEventListener('click', function () {
+    document.querySelector('.sidebar')?.classList.toggle('active');
+  });
+</script>
+
+
+{% endblock %}

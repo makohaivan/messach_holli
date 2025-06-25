@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <h2>HOLLI XPLICITS PHOTOGRAPHY</h2>
+    <main>
+        <section>
+           <div class="container mt-5">
+                <div class="row">
+                    {% for photo in photos %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow">
+                        <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ photo.title }}</h5>
+                            {% if photo.category %}
+                            <p class="card-text"><strong>Category:</strong> {{ photo.category.name }}</p>
+                            {% else %}
+                            <p class="card-text text-muted">No category</p>
+                            {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

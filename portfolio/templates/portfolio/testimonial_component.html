@@ -1,0 +1,84 @@
+<section id="testimonials" class="testimonials section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <div class="title-shape">
+          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+        </div>
+        <p>
+          Don't just take our word for it! Here's what some of our wonderful clients in Uganda and beyond have to say about their experience us. We are truly grateful for their trust and kind words.
+        </p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="testimonials-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "slidesPerView": 1,
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+            {% for testimonial in testimonials %}
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h2>{{testimonial.title}}</h2>
+                    <p>
+                      {{testimonial.description1}}
+                    </p>
+                    <p>
+                      {{testimonial.description2}}
+                    </p>
+                    <div class="profile d-flex align-items-center">
+                      <img src="{{testimonial.image.url}}" class="profile-img" alt="{{testimonial.client}}">
+                      <div class="profile-info">
+                        <h3>{{testimonial.client}}</h3>
+                        <span>{{testimonial.designation}}</span>
+                      </div>
+                    </div>
+                    {% if request.user.is_authenticated %}
+                    <div class="mt-3">
+                      <a href="{% url 'dashboard:editTestimonial' testimonial.id %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
+                      <a href="{% url 'dashboard:deleteTestimonial' testimonial.id %}" class="btn btn-sm btn-outline-danger"
+                        onclick="return confirm('Are you want to delete {{testimonial.title}}?');">Delete</a>
+                    </div>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="featured-img-wrapper">
+                      <img src="{{testimonial.image.url}}" class="featured-img" alt="{{testimonial.client}}">
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div><!-- End Testimonial Item -->
+            {% endfor %}
+          </div>
+
+          <div class="swiper-navigation w-100 d-flex align-items-center justify-content-center">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>

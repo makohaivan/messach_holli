@@ -1,0 +1,47 @@
+<!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <div class="title-shape">
+          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+        </div>
+        <p>Capturing Your Moments with Precision and Passion</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h2 class="fw-bold mb-4 servies-title">We offer custom tailored services</h2>
+            <p class="mb-4">
+              With a keen eye for detail and a passion for storytelling, I provide photography solutions that are both artistic and purposeful. Let’s turn moments into memories and ideas into impactful visuals.
+            </p>
+            {% if show_button %}
+            <a href="{% url 'portfolio:services' %}" class="btn btn-outline-primary">See all services</a>
+            {% endif %}
+          </div>
+          <div class="col-lg-8">
+            <div class="row g-4">
+              {% for service in service_list %}
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:"2" }}00">
+                <div class="service-item">
+                  <i class="{{service.icon}}"></i>
+                  <h3>{{service.title}}</h3>
+                  <p>
+                   {{service.description}}
+                  </p>
+                </div>
+              </div><!-- End Service Item -->
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
