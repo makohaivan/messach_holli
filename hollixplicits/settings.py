@@ -103,11 +103,11 @@ DATABASES = {
         'NAME': os.getenv('MYSQL_DATABASE'),
         'USER': os.getenv('MYSQL_USER'),
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-        'HOST': os.getenv('MYSQL_HOST', 'localhost'),
+        'HOST': os.getenv('MYSQL_HOST'),
         'PORT': os.getenv('MYSQL_PORT', '3306'),
         'OPTIONS': {
             'charset': 'utf8mb4',  # For emoji support
-            'ssl_mode': 'DISABLED' if os.getenv('DEV_ENV') else 'REQUIRED'
+            'ssl_mode': 'REQUIRED'
         }
     }
 }
