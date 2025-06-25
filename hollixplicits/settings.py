@@ -38,7 +38,7 @@ CONTACT_EMAIL = os.getenv('CONTACT_EMAIL')
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['messach-holli.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
