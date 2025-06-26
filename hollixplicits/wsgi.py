@@ -16,8 +16,12 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hollixplicits.settings')
 application = get_wsgi_application()
 
 
-# ⚠️ TEMP CODE: Clear migration history from PostgreSQL
-from django.db import connection
+# ✅ Run migrations manually (only temporarily!)
+from django.core.management import call_command
 
-with connection.cursor() as cursor:
-    cursor.execute("DELETE FROM django_migrations;")
+try:
+    print("🚀 Applying migrations...")
+    call_command('migrate', interactive=False)
+    print("✅ Migrations applied.")
+except Exception as e:
+    print("❌ Migration failed:", str(e))
