@@ -105,13 +105,11 @@ WSGI_APPLICATION = 'hollixplicits.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-
-DATABASES['default'] = dj_database_url.parse(os.getenv("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600  # optional, for persistent DB connections
+    )
+}
 
 
 # Password validation
