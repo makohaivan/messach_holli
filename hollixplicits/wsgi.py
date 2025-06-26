@@ -14,3 +14,10 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hollixplicits.settings')
 
 application = get_wsgi_application()
+
+
+# ⚠️ TEMP CODE: Clear migration history from PostgreSQL
+from django.db import connection
+
+with connection.cursor() as cursor:
+    cursor.execute("DELETE FROM django_migrations;")
