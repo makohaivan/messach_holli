@@ -16,12 +16,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hollixplicits.settings')
 application = get_wsgi_application()
 
 
-from django.core.management import call_command
 
-try:
-    print("🚀 Faking migrations...")
-    call_command('migrate', fake=True)
-    print("✅ Migrations faked.")
-except Exception as e:
-    print("❌ Fake migration failed:", str(e))
 
